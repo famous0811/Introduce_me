@@ -1,6 +1,10 @@
 body {
   margin: 0;
 }
+* {
+  box-sizing: border-box;
+  outline: none;
+}
 ul {
   list-style: none;
   margin: 0;
