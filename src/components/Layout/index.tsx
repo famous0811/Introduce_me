@@ -1,10 +1,11 @@
 import React, { useState, useCallback, useRef, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import styled from "styled-components";
-import { viewport, color } from "@styles/styleAsset";
-
 import Menu from "./Menu";
+
+import { viewport, color } from "@styles/styleAsset";
 import { Ul, Li } from "@components/assets/ul";
+import Button from "@components/assets/button";
 
 const Header = styled.div`
   position: fixed;
@@ -12,16 +13,20 @@ const Header = styled.div`
   left: 0;
   width: 100%;
   height: 65px;
-  background: pink;
+  background: ${color.personal};
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 30px;
   z-index: 999;
   @media screen and (max-width: ${viewport.mobile}) {
-    background: blue;
+    background: ${color.personal};
     top: auto;
     bottom: 0;
+    padding: 0 15px;
+    & > .layoutTitle {
+      font-size: 1.2rem;
+    }
   }
 `;
 const Body = styled.article`
@@ -77,7 +82,7 @@ function Layout({ children, title = "SunrinThonGallery" }: LayoutProps) {
 
     const select = SelectRef.current;
     const allpostions: { value: string; postion: number }[] = [];
-    // @typescript-eslint/prefer-for-of
+
     for (const test of select.options) {
       const pos = document.getElementById("gallery" + test.value);
       if (!pos) break;
@@ -108,8 +113,8 @@ function Layout({ children, title = "SunrinThonGallery" }: LayoutProps) {
         closeModal={showModal}
       />
       <Header>
-        <h1>SUNRINTHON</h1>
-        <button onClick={showModal}>menu</button>
+        <h1 className="layoutTitle">Allblack's Portfolio</h1>
+        <Button onClick={showModal}>menu</Button>
 
         <Select
           name=""

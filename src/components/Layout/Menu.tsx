@@ -8,39 +8,69 @@ const MenuWrap = styled.div<MenuShow>`
   top: 0;
   left: 0;
   width: 100%;
-  height: 0;
+  @media screen and (max-width: ${viewport.mobile}) {
+    top: auto;
+    bottom: 0;
+  }
   background: none;
-
+  transition: background 1.5s;
   ${({ show }) =>
-    show &&
-    css`
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      animation: appear 1s forwards;
-      @keyframes appear {
-        from {
-          opacity: 0;
-        }
-        to {
-          opacity: 1;
-        }
-      }
-    `}
-
-  &>div {
+    show
+      ? css`
+          height: 100%;
+          @keyframes appearWrap {
+            0% {
+              opacity: 0;
+            }
+            100% {
+              background: rgba(0, 0, 0, 0.5);
+              opacity: 1;
+            }
+          }
+          animation: appearWrap 0.5s forwards;
+        `
+      : css`
+          @keyframes disappearWrap {
+            0% {
+              background: rgba(0, 0, 0, 0.5);
+              opacity: 1;
+            }
+            50% {
+              opacity: 0.5;
+            }
+            100% {
+              height: 0;
+            }
+          }
+          animation: disappearWrap 2s forwards;
+        `}
+  & > .menuBody {
     width: 100%;
     overflow: hidden;
-    height: 0px;
     ${({ show }) =>
-      show &&
-      css`
-        animation: heightates 0.7s forwards;
-        @keyframes heightates {
-          100% {
-            height: 200px;
-          }
-        }
-      `}
+      show
+        ? css`
+            @keyframes appearBody {
+              0% {
+                height: 0px;
+              }
+              100% {
+                height: 200px;
+              }
+            }
+            animation: appearBody 0.7s forwards;
+          `
+        : css`
+            @keyframes disappearBody {
+              0% {
+                height: 200px;
+              }
+              100% {
+                height: 0px;
+              }
+            }
+            animation: disappearBody 0.7s forwards;
+          `}
   }
 `;
 
@@ -51,15 +81,33 @@ const MenuBody = styled.div`
   background: white;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  overflow: hidden;
   @media screen and (max-width: ${viewport.mobile}) {
     top: auto;
     bottom: 65px;
+    flex-direction: column-reverse;
+  }
+  & > .menuPageNation {
+    font-weight: bold;
+    color: black;
+    margin: 15px 0;
+    padding: 0 7px;
+    width: fit-content;
+    transition: color 0.5s;
+    &:hover {
+      color: ${color.personal};
+    }
   }
 `;
 
 const MenuFooter = styled.div`
   border-top: 3px solid ${color.personal};
+  font-weight: 600;
+  padding: 15px 10px;
+  @media screen and (max-width: ${viewport.mobile}) {
+    border-top: none;
+    border-bottom: 3px solid ${color.personal};
+  }
 `;
 
 interface MenuShow {
@@ -76,17 +124,30 @@ interface MenuProps extends MenuShow {
 
 function Menu({ latestCompetition, show, closeModal }: MenuProps) {
   return (
-    <MenuWrap show={show} onClick={closeModal}>
-      <MenuBody onClick={(e) => e.stopPropagation()}>
-        <Link to="/">home</Link>
-        <Link to="/gallery">gallery</Link>
-        <Link to={"/gallerydetails/" + latestCompetition.year}>
+    <MenuWrap show={show} onClick={closeModal} className="menuWrap">
+      <MenuBody onClick={(e) => e.stopPropagation()} className="menuBody">
+        <Link to="/" className="menuPageNation">
+          Home
+        </Link>
+        <Link to="/gallery" className="menuPageNation">
+          Gallery
+        </Link>
+        <Link
+          to={"/gallerydetails/" + latestCompetition.year}
+          className="menuPageNation"
+        >
           {latestCompetition.title}
         </Link>
-        <MenuFooter>선린인터넷고등학교선린 해커톤 갤러리</MenuFooter>
+        <MenuFooter>Allblack's 갤러리</MenuFooter>
       </MenuBody>
     </MenuWrap>
   );
 }
 
+Menu.defaultProps = {
+  latestCompetition: {
+    year: 2021,
+    title: "2021년 활동",
+  },
+};
 export default Menu;

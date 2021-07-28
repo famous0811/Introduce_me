@@ -1,7 +1,7 @@
 export const color = {
-  personal: "#000",
+  personal: "#6C63FF",
 };
 export const viewport = {
-  desktop: "",
-  mobile: "",
+  desktop: "1560px",
+  mobile: "480px",
 };
