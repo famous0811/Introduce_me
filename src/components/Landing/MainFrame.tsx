@@ -24,13 +24,13 @@ const InterduceWrap = styled.div<reserved>`
 
 const InterduceTitle = styled.h2`
   display: flex;
-  border: 1px solid ${color.personal};
+  /* border: 1px solid ${color.personal}; */
   border-bottom: none;
   margin: 0;
   width: 100%;
   max-width: 40%;
   padding: 10px 30px;
-  background: pink;
+  background: ${color.personal};
   @media screen and (max-width: ${viewport.mobile}) {
     max-width: 100%;
   }

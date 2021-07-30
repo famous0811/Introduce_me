@@ -1,6 +1,7 @@
-import React from 'react';
-import styled, { css } from 'styled-components';
-import { color, viewport } from '@styles/styleAsset';
+import React from "react";
+import styled, { css } from "styled-components";
+import { color, viewport } from "@styles/styleAsset";
+import Button from "@components/assets/button";
 
 const GalleryFrameWrap = styled.div`
   height: 100%;
@@ -9,12 +10,13 @@ const GalleryFrameWrap = styled.div`
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  background: pink;
+  background: white;
   border: 1px solid ${color.personal};
   margin-top: 20px;
   & > .schedule {
-    padding: 5px 30px;
-    background: yellow;
+    padding: 7px 25px;
+    background: ${color.personal};
+    font-weight: bold;
     @media screen and (max-width: ${viewport.mobile}) {
       display: none;
     }
@@ -70,14 +72,19 @@ const GalleryFrameImageSlick = styled.div<{ mobile?: boolean }>`
 
 const GalleryFrameTitle = styled.div`
   display: flex;
+  justify-content: center;
   align-items: center;
   width: 100%;
-  & > .episode {
-    font-weight: 600;
-    font-size: 48px;
-    padding: 10px 30px;
+  padding: 10px 30px;
+  @media screen and (max-width: ${viewport.mobile}) {
+    flex-direction: column;
+  }
+  & > .galleryYear {
+    font-weight: bold;
+    margin-right: 10px;
     @media screen and (max-width: ${viewport.mobile}) {
-      font-size: 32px;
+      margin-right: 0;
+      margin-bottom: 7px;
     }
   }
 `;
@@ -154,28 +161,20 @@ function GalleryFrame({
   detaildata,
 }: GalleryFrameProps) {
   return (
-    <GalleryFrameWrap data-aos={'fade-up'} id={'gallery' + contest.year}>
+    <GalleryFrameWrap data-aos={"fade-up"} id={"gallery" + contest.year}>
       <div className="schedule">{schedule}</div>
       <GalleryFrameItro>
         <GalleryFrameImpormation>
           <GalleryFrameTitle>
-            <div className="episode">{contest.episode}th</div>
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-              }}>
-              <span>{contest.year}</span>
-              <div>제{contest.episode}선린인터넷고등학교 해커톤</div>
-            </div>
+            <span className="galleryYear">{contest.year}</span>
+            <div>개발일지</div>
           </GalleryFrameTitle>
 
           <GalleryFrameImageSlick className="imageSlick" mobile>
             images
           </GalleryFrameImageSlick>
           <div className="galleryFrameTheme">
-            <div>theme</div>
-            <span>{theme}</span>
+            <span>요약</span>
             {/* 날려 */}
             <p>{contest.introduce}</p>
           </div>
@@ -186,7 +185,7 @@ function GalleryFrame({
           </div>
           {/* 날려 */}
           <div>
-            <button>MORE...</button>
+            <Button>MORE...</Button>
           </div>
         </GalleryFrameImpormation>
         <GalleryFrameImageSlick className="imageSlick">
@@ -206,7 +205,7 @@ function GalleryFrame({
           <div>STAFF</div>
           <ul>
             <li>
-              총괄 / {detaildata?.staff.total} 부총괄 /{' '}
+              총괄 / {detaildata?.staff.total} 부총괄 /{" "}
               {detaildata?.staff.subtotal}
             </li>
             <li>기획 / {detaildata?.staff.promoter}</li>

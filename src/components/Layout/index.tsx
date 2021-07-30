@@ -47,14 +47,20 @@ const Footer = styled.footer`
   }
 `;
 
+const Link = styled.a`
+  color: ${color.personal};
+  font-weight: 500;
+`;
+
 const Select = styled.select<{ show: boolean }>`
   display: ${({ show }) => (show ? "block" : "none")};
 `;
+
 interface LayoutProps {
   children?: React.ReactNode;
   title?: string;
 }
-function Layout({ children, title = "SunrinThonGallery" }: LayoutProps) {
+function Layout({ children, title = "Allblack's Portfolio" }: LayoutProps) {
   const [menuShow, setMenuShow] = useState(false);
   const [latestCompetition, setLatestCompetition] = useState({
     year: new Date().getFullYear().toString(),
@@ -125,44 +131,30 @@ function Layout({ children, title = "SunrinThonGallery" }: LayoutProps) {
           <option value="2021">2021</option>
           <option value="2020">2020</option>
           <option value="2019">2019</option>
-          <option value="2018">2018</option>
         </Select>
       </Header>
       <Body>{children}</Body>
       <Footer>
         <ul>
-          <li>copyright 🅒 SUNRINTON STAFF</li>
-          <li>CONACT</li>
-
-          <ul style={{ marginLeft: "20px" }}>
-            <li>
-              <Ul>
-                <Li>학교</Li>
-                <Li>[04314] 서울특별시 용산구 원효로97길 33-4</Li>
-                <Li>TEL 070-713-6213,FAX 704-0960</Li>
-              </Ul>
-            </li>
-            <li>
-              <Ul>
-                <Li>학과</Li>
-                <Li>소프트웨어 본교 3호관 4층 소프트웨어 교무실</Li>
-                <Li>TEL 070-4459-9071</Li>
-              </Ul>
-            </li>
-          </ul>
-
+          <li>copyright 🅒 2021</li>
           <li>
             <Ul>
-              <Li>DEVELOPERS</Li>
-              <Li>2021 SUNRINTHON WEB_DEVELOPERS(염태민/이호준/유명환)</Li>
+              <Li>github</Li>
+              <Li>
+                <Link href="http://github.com/famous0811">
+                  http://github.com/famous0811
+                </Link>
+              </Li>
             </Ul>
           </li>
           <li>
             <Ul>
-              <Li>WEB_CONTACT</Li>
-              <Li>깃</Li>
-              <Li>깃</Li>
-              <Li>깃</Li>
+              <Li>blog</Li>
+              <Li>
+                <Link href="https://allblack0811.tistory.com">
+                  https://allblack0811.tistory.com
+                </Link>
+              </Li>
             </Ul>
           </li>
         </ul>

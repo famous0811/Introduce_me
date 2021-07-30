@@ -1,10 +1,11 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Layout from "@components/Layout";
 import { Ul, Li } from "@components/assets/ul";
 
 import MainFrame from "@src/components/Landing/MainFrame";
-
+import Button from "@components/assets/button";
+import { viewport, color } from "@styles/styleAsset";
 const MainWrap = styled.div`
   width: 100%;
   height: 100%;
@@ -29,14 +30,17 @@ function Main() {
         </MainFrame>
         <MainFrame title="GALLERY" reverse>
           <div>
-            <div>description</div>
-            <h2>선린톤 갤러리</h2>
-            <p>
-              선린 해커톤의 역대 수상작과 대회 사진들을 확인할 수 있습니다!{" "}
-              <br />
-              지금 당장 가보죠! (등등의 여러 멘트)
-            </p>
-            <button>GALLERY</button>
+            <h2>Allblack's portfolio</h2>
+            <p>제가 개발하거나 참여했던 활동들을 정리해봤습니다!</p>
+            <Button
+              css={css`
+                background: ${color.personal};
+                color: white;
+                margin-top: 20px;
+              `}
+            >
+              GALLERY
+            </Button>
           </div>
           <div>test3</div>
         </MainFrame>
