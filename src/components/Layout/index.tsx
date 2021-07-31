@@ -5,7 +5,6 @@ import Menu from "./Menu";
 
 import { viewport, color } from "@styles/styleAsset";
 import { Ul, Li } from "@components/assets/ul";
-import Button from "@components/assets/button";
 
 const Header = styled.div`
   position: fixed;
@@ -62,15 +61,13 @@ interface LayoutProps {
 }
 function Layout({ children, title = "Allblack's Portfolio" }: LayoutProps) {
   const [menuShow, setMenuShow] = useState(false);
-  const [latestCompetition, setLatestCompetition] = useState({
-    year: new Date().getFullYear().toString(),
-    title: "sunrinthon2021",
-  });
+
   const SelectRef = useRef<HTMLSelectElement>(null);
 
   const MoveToYear = useCallback((e) => {
     const topos = document.getElementById("gallery" + e.target.value);
     if (!topos) return;
+
     // menu height 65px;
     window.scrollTo({
       top: topos.offsetTop - 65,
@@ -113,15 +110,13 @@ function Layout({ children, title = "Allblack's Portfolio" }: LayoutProps) {
       <Helmet>
         <title>{title}</title>
       </Helmet>
-      <Menu
-        show={menuShow}
-        latestCompetition={latestCompetition}
-        closeModal={showModal}
-      />
+      <Menu show={menuShow} closeModal={showModal} />
       <Header>
         <h1 className="layoutTitle">Allblack's Portfolio</h1>
-        <Button onClick={showModal}>menu</Button>
-
+        <button onClick={showModal}>
+          {/* //TODO list deain fix */}
+          <span className="material-icons">list</span>
+        </button>
         <Select
           name=""
           onChange={MoveToYear}

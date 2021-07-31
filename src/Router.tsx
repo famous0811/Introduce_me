@@ -13,7 +13,7 @@ const ClientRouter: JSX.Element = (
       <Switch>
         <Route exact path="/" component={Landing} />
         <Route exact path="/gallery" component={Gallery} />
-        <Route exact path="/gallerydetails/:id" component={GalleryDetails} />
+        <Route exact path="/activitys/:id" component={GalleryDetails} />
         <Route component={PageNotFound} exact />
       </Switch>
     </Router>

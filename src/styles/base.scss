@@ -1,9 +1,11 @@
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans&family=Roboto:wght@300&display=swap");
 body {
   margin: 0;
 }
 * {
   box-sizing: border-box;
   outline: none;
+  font-family: "Noto Sans KR", "Roboto", sans-serif;
 }
 ul {
   list-style: none;
@@ -15,4 +17,9 @@ a {
 }
 p {
   margin: 0;
+}
+
+button {
+  background: none;
+  border: none;
 }

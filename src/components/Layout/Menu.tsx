@@ -133,10 +133,10 @@ function Menu({ latestCompetition, show, closeModal }: MenuProps) {
           Gallery
         </Link>
         <Link
-          to={"/gallerydetails/" + latestCompetition.year}
+          to={"/activitys/" + latestCompetition.year}
           className="menuPageNation"
         >
-          {latestCompetition.title}
+          {latestCompetition.title + latestCompetition.year}
         </Link>
         <MenuFooter>Allblack's 갤러리</MenuFooter>
       </MenuBody>
@@ -146,8 +146,8 @@ function Menu({ latestCompetition, show, closeModal }: MenuProps) {
 
 Menu.defaultProps = {
   latestCompetition: {
-    year: 2021,
-    title: "2021년 활동",
+    year: new Date().getFullYear().toString(),
+    title: "Allblack's  ",
   },
 };
 export default Menu;

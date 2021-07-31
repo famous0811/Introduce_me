@@ -5,22 +5,23 @@ import { Ul, Li } from "@components/assets/ul";
 
 import MainFrame from "@src/components/Landing/MainFrame";
 import Button from "@components/assets/button";
-import { viewport, color } from "@styles/styleAsset";
+import { color } from "@styles/styleAsset";
+
 const MainWrap = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
 `;
+
 function Main() {
   return (
     <Layout>
       <MainWrap>
         <MainFrame title="HOME">
           <div>
-            <h1>SUNRINTHON!</h1>
+            <h1>Allblack's portfolio!</h1>
             <b>선린인터넷고등학교 해커톤 갤러리</b>
-
             <p>
               SUNRIN INTERNET HEIGHT SCHOOL <br />
               HACKATHON GALLERY

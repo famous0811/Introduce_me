@@ -5,6 +5,7 @@ const InterduceWrap = styled.div<reserved>`
   display: flex;
   flex-direction: column;
   width: 100%;
+  margin: 5px 0;
   /* 나중에 이걸로 변환 */
   /* height: 100%;
   max-height: 500px; */
