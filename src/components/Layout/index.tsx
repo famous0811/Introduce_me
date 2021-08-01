@@ -152,6 +152,16 @@ function Layout({ children, title = "Allblack's Portfolio" }: LayoutProps) {
               </Li>
             </Ul>
           </li>
+          <li>
+            <Ul>
+              <Li>Email</Li>
+              <Li>
+                <Link href="mailto:webmaster@yum969315@gmail.com">
+                  yum969315@gmail.com
+                </Link>
+              </Li>
+            </Ul>
+          </li>
         </ul>
       </Footer>
     </>

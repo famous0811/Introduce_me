@@ -22,10 +22,7 @@ function Main() {
           <div>
             <h1>Allblack's portfolio!</h1>
             <b>선린인터넷고등학교 해커톤 갤러리</b>
-            <p>
-              SUNRIN INTERNET HEIGHT SCHOOL <br />
-              HACKATHON GALLERY
-            </p>
+            <p>Allblack's portfolio!</p>
           </div>
           <div>test3</div>
         </MainFrame>
@@ -48,25 +45,19 @@ function Main() {
         <MainFrame title="CONTACT">
           <div>
             <Ul>
-              <Li>FACEBOOK</Li>
+              <Li>Github</Li>
               <Li>
-                <a href="/facebook.com/sunrinhackathon">
-                  facebook.com/sunrinhackathon
+                <a href="http://github.com/famous0811">
+                  http://github.com/famous0811
                 </a>
               </Li>
             </Ul>
-            <Ul center>
-              <Li>학교</Li>
+            <Ul>
+              <Li>Blog</Li>
               <Li>
-                [04314] 서울특별시 용산구 원효로97길 33-4 <br />
-                TEL 070-713-6213, FAX 704-0960
-              </Li>
-            </Ul>
-            <Ul center>
-              <Li>학과</Li>
-              <Li>
-                소프트웨어 본교 3호관 4층 소프트웨어 교무실 <br />
-                TEL 070-4459-9071
+                <a href="https://allblack0811.tistory.com">
+                  https://allblack0811.tistory.com
+                </a>
               </Li>
             </Ul>
           </div>
